@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title> Contact Us! </title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+</head>
+
+<body> 
+
+    <div class="navbar-container">
+        <nav class="navbar">
+            <ul> 
+                <li> <a href="index.html" > Home </a></li>
+                <li> <a href="classes.html" > Classes </a></li>
+                <li> <a href="about.html" > About </a></li>
+                <li> <a href="join.html" > Join Us </a></li>
+                <li> <a href="tutor.html" > Become a Tutor </a></li>
+                <li> <a href="contact.html" > Contact Us </a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="container">
+        <h1> Contact Us</h1>
+        <p> If you have any questions or feedback, feel free to reach out using the form below or email us at <a href="mailto:rylanlee1968@gmail.com">rylanlee1968@gmail.com</a>.</p>
+        
+        <form id="contact-form"> 
+            <label for="name">Name:</label><br>
+            <input type = "text" id="name" name="user_name" requried> <br><br>
+
+            <label for="email">Email:</label> <br>
+            <input type = "email" id="email" name="user_email" requried> <br><br>
+
+            <label for="message">Message:</label> <br>
+            <textarea  id="message" name="user_message" rows = "10" requried></textarea><br><br>
+
+            <button type="submit">Send</button>
+        </form>
+    </div>
+
+    <script>
+        (function() {
+            emailjs.init("_6_HWJj0UciLA03Jm")
+        });
+
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            emailjs.sendForm ('service_o7r062c','template_s4524q8',this)
+            .then(() => alert("Message sent successfully!"))
+            .catch(() => alert("Failed to send message, please try again."))
+
+        }) 
+    </script>
+
+</body>
+
+</html>
